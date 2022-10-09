@@ -1,0 +1,8 @@
+{
+  "name": "trigger-custom-sender",
+  "dependencies": {
+    "@aws-crypto/client-node": "^1.9.1",
+    "base64-js": "^1.5.1",
+    "node-fetch": "^2.6.7"
+  }
+}

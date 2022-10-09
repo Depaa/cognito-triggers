@@ -1,0 +1,6 @@
+{
+  "name": "trigger-migrate-user",
+  "dependencies": {
+    "aws-jwt-verify": "^3.1.0"
+  }
+}

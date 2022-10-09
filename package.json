@@ -1,0 +1,29 @@
+{
+  "name": "cdk-cognito-triggers",
+  "version": "0.30.0",
+  "bin": {
+    "cdk-boilerplate": "infra/app.js"
+  },
+  "scripts": {
+    "build": "tsc ",
+    "watch": "tsc -w",
+    "test": "node test/send-locations.js",
+    "cdk": "cdk",
+    "bootstrap": "cdk bootstrap -c config=dev --profile personal",
+    "synth": "cdk synth -c config=dev --profile personal",
+    "diff": "npm version patch --no-git-tag-version && npm run build && cdk diff \"*\" -c config=dev --profile personal",
+    "deploy": "npm version minor --no-git-tag-version && npm run build && cdk deploy \"*\" -c config=dev --require-approval=never --progress=events --profile personal",
+    "destroy": "cdk destroy --all -c config=dev --profile personal"
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.60",
+    "prompt": "^1.3.0",
+    "ts-node": "^9.1.1",
+    "typescript": "~3.9.7"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.43.0",
+    "aws-sdk": "^2.1218.0",
+    "constructs": "^10.1.104"
+  }
+}

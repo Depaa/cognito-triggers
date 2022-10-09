@@ -1,0 +1,65 @@
+{
+  "app": "npx ts-node --prefer-ts-exts infra/app.ts",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+      "yarn.lock",
+      "node_modules",
+      "test"
+    ]
+  },
+  "context": {
+    "dev": {
+      "account": "1234567890",
+      "region": "eu-central-1",
+      "environment": "dev",
+      "version": "0.0.1",
+      "build": "1",
+      "project": "cognito-triggers-blog",
+      "stacks": {
+        "ses": {
+          "identity": "youremail@address.com",
+          "receivers": [
+            "youremail+1@address.com",
+            "youremail+2@address.com",
+            "youremail+3@address.com",
+            "youremail+4@address.com"
+          ]
+        },
+        "cognito": {
+          "enableCustomSender": false,
+          "customProvider": {
+            "email": {
+              "api-key": "SENDGRID_API_KEY",
+              "sender": "SENDGRID_SENDER_EMAIL"
+            },
+            "sms": {
+              "api-key": "TWILIO_API_KEY",
+              "senderId": "TWILIO_SENDER_ID",
+              "sender": "TWILIO_SENDER_NUMBER"
+            }
+          }
+        }
+      }
+    },
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
+    "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
+    "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ]
+  }
+}

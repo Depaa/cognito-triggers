@@ -1,0 +1,6 @@
+{
+  "name": "test-cognito-triggers",
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.181.0"
+  }
+}
