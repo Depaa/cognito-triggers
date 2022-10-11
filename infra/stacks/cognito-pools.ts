@@ -130,8 +130,6 @@ export class CognitoStack extends Stack {
         sesRegion: buildConfig.region,
         fromEmail: buildConfig.stacks.ses.identity,
         fromName: 'Cognito blog',
-        // replyTo: 'support@myawesomeapp.com',
-        // sesVerifiedDomain: 'myawesomeapp.com',
       }),
     });
   }

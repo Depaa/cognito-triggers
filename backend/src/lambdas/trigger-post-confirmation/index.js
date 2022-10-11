@@ -9,7 +9,7 @@ exports.handler = async (event) => {
   console.debug(event);
 
   if (event.triggerSource === 'PostConfirmation_ConfirmSignUp') {
-    const result = await dynamodb
+    await dynamodb
       .put({
         TableName: process.env.USERS_TABLE,
         Item: {
@@ -24,27 +24,12 @@ exports.handler = async (event) => {
       .promise();
     console.info(`Successfully executed put in ${process.env.USERS_TABLE}`);
 
-    const subject = 'Welcome confirmed user';
-    const body = 'Glad you are here';
-
     const params = {
       Source: process.env.SES_IDENTITY,
-      Destination: {
-        ToAddresses: [
-          event.request.userAttributes.email,
-        ],
-      },
+      Destination: { ToAddresses: [ event.request.userAttributes.email, ], },
       Message: {
-        Subject: {
-          Data: subject,
-          Charset: 'UTF-8',
-        },
-        Body: {
-          Html: {
-            Data: body,
-            Charset: 'UTF-8',
-          },
-        },
+        Subject: { Data: 'Welcome confirmed user', Charset: 'UTF-8', },
+        Body: { Html: { Data: 'Glad you are here', Charset: 'UTF-8', }, },
       },
     };
     await ses.sendEmail(params).promise();

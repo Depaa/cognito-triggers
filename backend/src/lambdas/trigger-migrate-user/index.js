@@ -13,8 +13,6 @@ const verifier = CognitoJwtVerifier.create({
 exports.handler = async (event) => {
     console.debug(event);
 
-    process.env.USER_POOL_ID = event.userPoolId;
-
     if (event.triggerSource === 'UserMigration_Authentication') {
         // authenticate user with your existing user directory service
         const user = await authenticateUser(event.userName, event.request.password);
