@@ -1,5 +1,5 @@
 <h1>Amazon Cognito Triggers: all you need to know about them | Part 1</h1>
-You can read the blogpost here:
+You can read the blogpost here: <a href="https://depascalematteo.medium.com/all-you-need-to-know-about-amazon-cognito-triggers-part-1-57085a126ac1?source=friends_link&sk=04c5171ad4b7170c0fd949ad289b84b5">https://depascalematteo.medium.com/all-you-need-to-know-about-amazon-cognito-triggers-part-1-57085a126ac1</a>
 
 # Cognito users pool Stack
 ## User pool
