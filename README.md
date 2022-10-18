@@ -1,4 +1,4 @@
-<h1> All you need to know about Amazon Cognito Triggers | Part 1 </h1>
+<h1>Amazon Cognito Triggers: all you need to know about them | Part 1</h1>
 You can read the blogpost here:
 
 # Cognito users pool Stack
